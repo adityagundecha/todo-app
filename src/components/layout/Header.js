@@ -5,9 +5,10 @@ import { AddTask } from "../AddTask";
 import { useAuth0 } from "../../react-auth0-spa";
 
 export const Header = ({ darkMode, setDarkMode }) => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { user,isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [shouldShowMain, setShouldShowMain] = useState(false);
   const [showQuickAddTask, setShowQuickAddTask] = useState(false);
+  const [showLogout, setShowLogout] = useState(false);
   return (
     <header className="header" data-testid="header">
       <nav>
@@ -50,14 +51,18 @@ export const Header = ({ darkMode, setDarkMode }) => {
                 </button>
               </li>
             )}
-
+            <li className="avatar">               
+              {isAuthenticated && (
+                  <img src={user.picture} alt="Profile" className="avatar" onClick={() => setShowLogout(!showLogout)} onKeyDown={() => setShowLogout(!showLogout)}/>
+                )}
+            </li>
             <li className="login__button">
               <div aria-label="Log in / out">
                 {!isAuthenticated && (
                   <button onClick={() => loginWithRedirect({})}>Log in</button>
                 )}
 
-                {isAuthenticated && (
+                {isAuthenticated && showLogout && (
                   <button onClick={() => logout()}>Log out</button>
                 )}
               </div>

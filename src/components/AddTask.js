@@ -25,7 +25,6 @@ export const AddTask = ({
   const { selectedProject } = useSelectedProjectValue();
 
   const addTask = () => {
-    console.log(user);
     const projectId = project || selectedProject;
     let collatedDate = "";
 
