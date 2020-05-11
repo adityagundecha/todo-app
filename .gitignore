@@ -9,8 +9,10 @@
 # production
 /build
 /src/firebase.js
+*auth_config*
 
 # misc
+.netlify
 .DS_Store
 .env.local
 .env.development.local

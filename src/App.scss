@@ -22,7 +22,6 @@ body {
   font-family: "Roboto", sans-serif;
   color: #202020;
   background-color: #fafafa;
-  font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -427,7 +426,7 @@ header {
   background-color: #fafafa;
 
   @include mq("900px") {
-    display: none;
+    width: 40%;
   }
 
   li {
@@ -637,14 +636,16 @@ header {
   border-right: $generic-border;
   min-height: calc(100vh);
   vertical-align: top;
+  align-self: flex-end;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 80px;
   padding-bottom: 84px;
 
   @include mq("900px") {
-    margin-left: 0;
-    width: auto;
+    margin-left: 40%;
+    padding: 80px 0 0 10px;
+    width: 60%;
   }
 
   h2 {
